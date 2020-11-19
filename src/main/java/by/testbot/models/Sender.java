@@ -1,10 +1,13 @@
 package by.testbot.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Data;
 
 @Data
+@JsonInclude(Include.NON_NULL)
 public class Sender {
     @JsonProperty("id")
     private String id;
@@ -22,5 +25,5 @@ public class Sender {
     private String language;
 
     @JsonProperty("api_version")
-    private String apiVersion;
+    private Integer apiVersion;
 }

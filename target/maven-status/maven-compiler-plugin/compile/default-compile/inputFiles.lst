@@ -1,31 +1,31 @@
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\bot\BotState.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\User.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\enums\EventType.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\config\FeignConfiguration.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\Sender.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\MessageCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\TestbotApplication.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\Message.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\ViberUpdate.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\Location.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\bot\BotContext.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\requests\SetWebhookRequest.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\proxy\ViberProxy.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\SubscribedCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\enums\MessageType.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\config\FeignErrorDecoder.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\services\ViberService.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\requests\SendTextMessageRequest.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\utils\Utils.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\SeenCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\services\InitializationService.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\controllers\WebhookController.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\FailedCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\UnsubscribedCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\ConversationStartedCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\enums\Status.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\services\WebhookService.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\DeliveredCallback.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\responses\SetWebhookResponse.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\models\Contact.java
-C:\Users\Lenovo\IdeaProjects\ViberTestBot3\src\main\java\by\testbot\payload\callbacks\WebhookCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\config\FeignErrorDecoder.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\enums\Status.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\services\WebhookService.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\services\InitializationService.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\MessageCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\ViberUpdate.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\enums\MessageType.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\controllers\WebhookController.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\bot\BotState.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\ConversationStartedCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\requests\SetWebhookRequest.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\bot\BotContext.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\DeliveredCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\config\FeignConfiguration.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\services\ViberService.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\User.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\WebhookCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\Location.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\proxy\ViberProxy.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\utils\Utils.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\FailedCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\requests\SendTextMessageRequest.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\Sender.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\responses\SetWebhookResponse.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\Message.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\enums\EventType.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\UnsubscribedCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\TestbotApplication.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\models\Contact.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\SubscribedCallback.java
+D:\Visual Studio Code Projects\vibertestbot\src\main\java\by\testbot\payload\callbacks\SeenCallback.java

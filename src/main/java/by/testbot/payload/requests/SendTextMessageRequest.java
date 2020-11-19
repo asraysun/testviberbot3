@@ -1,15 +1,19 @@
 package by.testbot.payload.requests;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import by.testbot.models.Keyboard;
 import by.testbot.models.Sender;
 import by.testbot.models.enums.MessageType;
 import lombok.Data;
 
 @Data
+@JsonInclude(Include.NON_NULL)
 public class SendTextMessageRequest {
     @JsonProperty("receiver")
-    private String receiverId;
+    private String userId;
 
     @JsonProperty("min_api_version")
     private String minApiVersion;
@@ -20,9 +24,12 @@ public class SendTextMessageRequest {
     @JsonProperty("tracking_data")
     private String trackingData;
 
-    @JsonProperty("type")
-    private MessageType messageType = MessageType.TEXT;
+    @JsonProperty(value = "type", required = true)
+    private final MessageType messageType = MessageType.TEXT;
 
-    @JsonProperty("text")
+    @JsonProperty(value = "text", required = true)
     private String text;
+
+    @JsonProperty("keyboard")
+    private Keyboard keyboard;
 }

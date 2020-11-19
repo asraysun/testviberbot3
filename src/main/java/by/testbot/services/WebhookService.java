@@ -51,7 +51,7 @@ public class WebhookService {
             viberUpdate.setMessageCallback((MessageCallback)callback);
         }
         else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Could not find type of callback.");
         }
 
         viberService.handleUpdate(viberUpdate);
@@ -78,7 +78,7 @@ public class WebhookService {
             case MESSAGE:
                 return tryParseMessageCallback(update);
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Could not find type of callback.");
         }
     }
 
