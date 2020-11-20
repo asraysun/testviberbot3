@@ -1,4 +1,6 @@
-package by.testbot.payload.requests;
+package by.testbot.payload.requests.message;
+
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,12 +13,12 @@ import lombok.Data;
 
 @Data
 @JsonInclude(Include.NON_NULL)
-public class SendFileMessageRequest {
-    @JsonProperty(value = "receiver", required = true)
+public class SendTextMessageRequest {
+    @JsonProperty("receiver")
     private String userId;
 
     @JsonProperty("min_api_version")
-    private Integer minApiVersion;
+    private String minApiVersion;
 
     @JsonProperty("sender")
     private Sender sender;
@@ -25,18 +27,14 @@ public class SendFileMessageRequest {
     private String trackingData;
 
     @JsonProperty(value = "type", required = true)
-    private final MessageType messageType = MessageType.FILE;
+    private final MessageType messageType = MessageType.TEXT;
 
-    @JsonProperty(value = "media", required = true)
-    private String mediaUrl;
-
-    @JsonProperty(value = "size", required = true)
-    private Long size;
-
-    @JsonProperty(value = "file_name", required = true)
-    private String fileName;
+    @JsonProperty(value = "text", required = true)
+    private String text;
 
     @JsonProperty("keyboard")
     private Keyboard keyboard;
-}
 
+    @JsonProperty("broadcast_list")
+    private List<String> broadcastList;
+}

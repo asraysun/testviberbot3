@@ -2,7 +2,7 @@ package by.testbot.bot;
 
 import java.util.Arrays;
 
-import by.testbot.payload.requests.SendTextMessageRequest;
+import by.testbot.payload.requests.message.SendTextMessageRequest;
 
 public enum BotState {
     ConversationStarted(0, true) {

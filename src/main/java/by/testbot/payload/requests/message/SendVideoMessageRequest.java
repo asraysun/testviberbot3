@@ -1,4 +1,6 @@
-package by.testbot.payload.requests;
+package by.testbot.payload.requests.message;
+
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -41,4 +43,7 @@ public class SendVideoMessageRequest {
 
     @JsonProperty("keyboard")
     private Keyboard keyboard;
+
+    @JsonProperty("broadcast_list")
+    private List<String> broadcastList;
 }

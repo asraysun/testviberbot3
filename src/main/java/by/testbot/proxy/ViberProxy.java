@@ -5,14 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-import by.testbot.payload.requests.SendContactMessageRequest;
-import by.testbot.payload.requests.SendFileMessageRequest;
-import by.testbot.payload.requests.SendLocationMessageRequest;
-import by.testbot.payload.requests.SendPictureMessageRequest;
-import by.testbot.payload.requests.SendStickerMessageRequest;
-import by.testbot.payload.requests.SendTextMessageRequest;
-import by.testbot.payload.requests.SendUrlMessageRequest;
-import by.testbot.payload.requests.SendVideoMessageRequest;
+import by.testbot.payload.requests.message.*;
 import by.testbot.payload.requests.SetWebhookRequest;
 import by.testbot.payload.responses.SendMessageResponse;
 import by.testbot.payload.responses.SetWebhookResponse;

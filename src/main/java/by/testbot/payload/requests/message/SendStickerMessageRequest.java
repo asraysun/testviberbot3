@@ -1,4 +1,6 @@
-package by.testbot.payload.requests;
+package by.testbot.payload.requests.message;
+
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,7 +14,7 @@ import lombok.Data;
 @Data
 @JsonInclude(Include.NON_NULL)
 public class SendStickerMessageRequest {
-    @JsonProperty(value = "receiver", required = true)
+    @JsonProperty("receiver")
     private String userId;
 
     @JsonProperty("min_api_version")
@@ -32,4 +34,7 @@ public class SendStickerMessageRequest {
 
     @JsonProperty("keyboard")
     private Keyboard keyboard;
+
+    @JsonProperty("broadcast_list")
+    private List<String> broadcastList;
 }

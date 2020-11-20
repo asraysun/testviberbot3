@@ -1,19 +1,20 @@
-package by.testbot.payload.requests;
+package by.testbot.payload.requests.message;
+
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import by.testbot.models.Keyboard;
-import by.testbot.models.Location;
 import by.testbot.models.Sender;
 import by.testbot.models.enums.MessageType;
 import lombok.Data;
 
 @Data
 @JsonInclude(Include.NON_NULL)
-public class SendLocationMessageRequest {
-    @JsonProperty(value = "receiver", required = true)
+public class SendPictureMessageRequest {
+    @JsonProperty("receiver")
     private String userId;
 
     @JsonProperty("min_api_version")
@@ -26,11 +27,20 @@ public class SendLocationMessageRequest {
     private String trackingData;
 
     @JsonProperty(value = "type", required = true)
-    private final MessageType messageType = MessageType.LOCATION;
+    private final MessageType messageType = MessageType.PICTURE;
 
-    @JsonProperty(value = "location", required = true)
-    private Location location;
+    @JsonProperty(value = "text", required = true)
+    private String text;
+
+    @JsonProperty(value = "media", required = true)
+    private String mediaUrl;
+
+    @JsonProperty("thumbnail")
+    private String thumbnailUrl;
 
     @JsonProperty("keyboard")
     private Keyboard keyboard;
+
+    @JsonProperty("broadcast_list")
+    private List<String> broadcastList;
 }

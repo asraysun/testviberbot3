@@ -10,14 +10,7 @@ import by.testbot.bot.BotContext;
 import by.testbot.bot.BotState;
 import by.testbot.models.ViberUpdate;
 import by.testbot.models.enums.Status;
-import by.testbot.payload.requests.SendContactMessageRequest;
-import by.testbot.payload.requests.SendFileMessageRequest;
-import by.testbot.payload.requests.SendLocationMessageRequest;
-import by.testbot.payload.requests.SendPictureMessageRequest;
-import by.testbot.payload.requests.SendStickerMessageRequest;
-import by.testbot.payload.requests.SendTextMessageRequest;
-import by.testbot.payload.requests.SendUrlMessageRequest;
-import by.testbot.payload.requests.SendVideoMessageRequest;
+import by.testbot.payload.requests.message.*;
 import by.testbot.payload.requests.SetWebhookRequest;
 import by.testbot.payload.responses.SendMessageResponse;
 import by.testbot.payload.responses.SetWebhookResponse;
@@ -67,9 +60,6 @@ public class ViberService {
         if (sendTextMessageRequest == null) {
             throw new IllegalArgumentException("Send text message request is null.");
         }
-        if (sendTextMessageRequest.getUserId() == null || sendTextMessageRequest.getUserId().isEmpty() || sendTextMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
-        }
         if (sendTextMessageRequest.getSender().getName() == null || sendTextMessageRequest.getSender().getName().isEmpty() || sendTextMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
         }
@@ -90,9 +80,6 @@ public class ViberService {
     public void sendPictureMessage(SendPictureMessageRequest sendPictureMessageRequest) {
         if (sendPictureMessageRequest == null) {
             throw new IllegalArgumentException("Send picture message request is null.");
-        }
-        if (sendPictureMessageRequest.getUserId() == null || sendPictureMessageRequest.getUserId().isEmpty() || sendPictureMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
         }
         if (sendPictureMessageRequest.getSender().getName() == null || sendPictureMessageRequest.getSender().getName().isEmpty() || sendPictureMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
@@ -118,9 +105,6 @@ public class ViberService {
         if (sendVideoMessageRequest == null) {
             throw new IllegalArgumentException("Send video message request is null.");
         }
-        if (sendVideoMessageRequest.getUserId() == null || sendVideoMessageRequest.getUserId().isEmpty() || sendVideoMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
-        }
         if (sendVideoMessageRequest.getSender().getName() == null || sendVideoMessageRequest.getSender().getName().isEmpty() || sendVideoMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
         }
@@ -144,9 +128,6 @@ public class ViberService {
     public void sendFileMessage(SendFileMessageRequest sendFileMessageRequest) {
         if (sendFileMessageRequest == null) {
             throw new IllegalArgumentException("Send file message request is null.");
-        }
-        if (sendFileMessageRequest.getUserId() == null || sendFileMessageRequest.getUserId().isEmpty() || sendFileMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
         }
         if (sendFileMessageRequest.getSender().getName() == null || sendFileMessageRequest.getSender().getName().isEmpty() || sendFileMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
@@ -175,9 +156,6 @@ public class ViberService {
         if (sendContactMessageRequest == null) {
             throw new IllegalArgumentException("Send contact message request is null.");
         }
-        if (sendContactMessageRequest.getUserId() == null || sendContactMessageRequest.getUserId().isEmpty() || sendContactMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
-        }
         if (sendContactMessageRequest.getSender().getName() == null || sendContactMessageRequest.getSender().getName().isEmpty() || sendContactMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
         }
@@ -202,9 +180,6 @@ public class ViberService {
         if (sendLocationMessageRequest == null) {
             throw new IllegalArgumentException("Send location message request is null.");
         }
-        if (sendLocationMessageRequest.getUserId() == null || sendLocationMessageRequest.getUserId().isEmpty() || sendLocationMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
-        }
         if (sendLocationMessageRequest.getSender().getName() == null || sendLocationMessageRequest.getSender().getName().isEmpty() || sendLocationMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
         }
@@ -225,9 +200,6 @@ public class ViberService {
     public void sendUrlMessage(SendUrlMessageRequest sendUrlMessageRequest) {
         if (sendUrlMessageRequest == null) {
             throw new IllegalArgumentException("Send url message request is null.");
-        }
-        if (sendUrlMessageRequest.getUserId() == null || sendUrlMessageRequest.getUserId().isEmpty() || sendUrlMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
         }
         if (sendUrlMessageRequest.getSender().getName() == null || sendUrlMessageRequest.getSender().getName().isEmpty() || sendUrlMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
@@ -250,9 +222,6 @@ public class ViberService {
         if (sendStickerMessageRequest == null) {
             throw new IllegalArgumentException("Send sticker message request is null.");
         }
-        if (sendStickerMessageRequest.getUserId() == null || sendStickerMessageRequest.getUserId().isEmpty() || sendStickerMessageRequest.getUserId().isBlank()) {
-            throw new IllegalArgumentException("User id is null or empty.");
-        }
         if (sendStickerMessageRequest.getSender().getName() == null || sendStickerMessageRequest.getSender().getName().isEmpty() || sendStickerMessageRequest.getSender().getName().isBlank()) {
             throw new IllegalArgumentException("Sender name is null or empty.");
         }
@@ -272,23 +241,28 @@ public class ViberService {
 
     public void handleUpdate(ViberUpdate viberUpdate) {
         if (viberUpdate.hasDeliveredCallback()) {
+            logger.info("Received DeliveredCallback from user: " + viberUpdate.getDeliveredCallback().getUserId());
             // handle callback
         }
         else if (viberUpdate.hasSeenCallback()) {
+            logger.info("Received SeenCallback from user: " + viberUpdate.getSeenCallback().getUserId());
             // handle callback
         }
         else if (viberUpdate.hasFailedCallback()) {
+            logger.info("Received FailedCallback from user: " + viberUpdate.getFailedCallback().getUserId() + ", with message: " + viberUpdate.getFailedCallback().getDescription());
             // handle callback
         }
         else if (viberUpdate.hasSubscribedCallback()) {
+            logger.info("Received SubscribedCallback from user: " + viberUpdate.getSubscribedCallback().getUser().getViberId());
             // handle callback
         }
         else if (viberUpdate.hasUnsubscribedCallback()) {
+            logger.info("Received UnsubscribedCallback from user: " + viberUpdate.getUnsubscribedCallback().getUserId());
             // handle callback
         }
         else if (viberUpdate.hasConversationStartedCallback()) {
+            logger.info("Received ConversationStartedCallback from user: " + viberUpdate.getConversationStartedCallback().getUser().getViberId());
             // handle callback
-
 
             BotState botState = BotState.ConversationStarted;
             BotContext botContext = BotContext.of(this, viberUpdate.getConversationStartedCallback());
@@ -296,9 +270,11 @@ public class ViberService {
             botState.enter(botContext);
         }
         else if (viberUpdate.hasWebhookCallback()) {
+            logger.info("Received WebhookCallback.");
             // handle callback
         }
         else if (viberUpdate.hasMessageCallback()) {
+            logger.info("Received MessageCallback from user: " + viberUpdate.getMessageCallback().getSender().getId() + ", message type: " + viberUpdate.getMessageCallback().getMessage().getMessageType());
             // handle callback
         }
     }
