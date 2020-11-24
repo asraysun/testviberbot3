@@ -53,7 +53,7 @@ public class Button {
     @JsonProperty("Image")
     private String imageUrl;
 
-    @JsonProperty("text")
+    @JsonProperty("Text")
     private String text;
 
     @JsonProperty("TextVAlign")

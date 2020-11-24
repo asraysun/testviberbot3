@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import by.testbot.models.enums.InputFieldState;
+import by.testbot.models.enums.MessageType;
 import lombok.Data;
 
 @Data
@@ -35,4 +36,7 @@ public class Keyboard {
 
     @JsonProperty("InputFieldState")
     private InputFieldState inputFieldState;
+
+    @JsonProperty("Type")
+    private final MessageType messageType = MessageType.KEYBOARD; 
 }

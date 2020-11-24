@@ -28,5 +28,8 @@ public enum MessageType {
     LOCATION,
 
     @JsonProperty("rich_media")
-    RICH_MEDIA;
+    RICH_MEDIA,
+
+    @JsonProperty("keyboard")
+    KEYBOARD;
 }

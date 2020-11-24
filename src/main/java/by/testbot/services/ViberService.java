@@ -24,6 +24,12 @@ public class ViberService {
     @Autowired
     private ViberProxy viberProxy;
 
+    @Autowired
+    private MessageService messageService;
+
+    @Autowired
+    private KeyboardService keyboardService;
+
     @Value("${testbot.authenticationToken}")
     private String authenticationToken;
 
@@ -254,7 +260,10 @@ public class ViberService {
         }
         else if (viberUpdate.hasSubscribedCallback()) {
             logger.info("Received SubscribedCallback from user: " + viberUpdate.getSubscribedCallback().getUser().getViberId());
+            
             // handle callback
+
+            messageService.sendHelloWorldMessage(viberUpdate.getSubscribedCallback().getUser().getViberId());
         }
         else if (viberUpdate.hasUnsubscribedCallback()) {
             logger.info("Received UnsubscribedCallback from user: " + viberUpdate.getUnsubscribedCallback().getUserId());
@@ -265,7 +274,7 @@ public class ViberService {
             // handle callback
 
             BotState botState = BotState.ConversationStarted;
-            BotContext botContext = BotContext.of(this, viberUpdate.getConversationStartedCallback());
+            BotContext botContext = BotContext.of(this, this.messageService, this.keyboardService, viberUpdate.getConversationStartedCallback());
 
             botState.enter(botContext);
         }
