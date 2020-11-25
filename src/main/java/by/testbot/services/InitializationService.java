@@ -12,6 +12,6 @@ public class InitializationService {
 
     @SneakyThrows
     public void initalize() {
-        viberService.setWebhook();
+        viberService.setWeebhook();
     }
 }
