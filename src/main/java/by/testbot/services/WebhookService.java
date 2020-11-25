@@ -1,6 +1,6 @@
 package by.testbot.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import by.testbot.payload.callbacks.SeenCallback;
 import by.testbot.payload.callbacks.SubscribedCallback;
 import by.testbot.payload.callbacks.UnsubscribedCallback;
 import by.testbot.payload.callbacks.WebhookCallback;
-import lombok.SneakyThrows;
 
 @Service
 public class WebhookService {
@@ -52,7 +51,7 @@ public class WebhookService {
             viberUpdate.setMessageCallback((MessageCallback)callback);
         }
         else {
-            throw new IllegalArgumentException("Could not find type of callback.");
+            throw new IllegalArgumentException();
         }
 
         viberService.handleUpdate(viberUpdate);
@@ -79,47 +78,39 @@ public class WebhookService {
             case MESSAGE:
                 return tryParseMessageCallback(update);
             default:
-                throw new IllegalArgumentException("Could not find type of callback.");
+                throw new IllegalArgumentException();
         }
     }
 
-    @SneakyThrows
     private DeliveredCallback tryParseDeliveredCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), DeliveredCallback.class);
+        return new Gson().fromJson(object.toString(), DeliveredCallback.class);
     }       
 
-    @SneakyThrows
     private SeenCallback tryParseSeenCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), SeenCallback.class);
+        return new Gson().fromJson(object.toString(), SeenCallback.class);
     }
 
-    @SneakyThrows
     private FailedCallback tryParseFailedCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), FailedCallback.class);
+        return new Gson().fromJson(object.toString(), FailedCallback.class);
     }
 
-    @SneakyThrows
     private SubscribedCallback tryParseSubscribedCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), SubscribedCallback.class);
+        return new Gson().fromJson(object.toString(), SubscribedCallback.class);
     }
 
-    @SneakyThrows
     private UnsubscribedCallback tryParseUnsubscribedCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), UnsubscribedCallback.class);
+        return new Gson().fromJson(object.toString(), UnsubscribedCallback.class);
     }
 
-    @SneakyThrows
     private ConversationStartedCallback tryParseConversationStartedCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), ConversationStartedCallback.class);
+        return new Gson().fromJson(object.toString(), ConversationStartedCallback.class);
     }
 
-    @SneakyThrows
     private WebhookCallback tryParseWebhookCallback(JSONObject object) {
-        return new ObjectMapper().readValue(object.toString(), WebhookCallback.class);
+        return new Gson().fromJson(object.toString(), WebhookCallback.class);
     }
 
-    @SneakyThrows
     private MessageCallback tryParseMessageCallback(JSONObject object) {    
-        return new ObjectMapper().readValue(object.toString(), MessageCallback.class);
+        return new Gson().fromJson(object.toString(), MessageCallback.class);
     }
 }

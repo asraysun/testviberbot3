@@ -27,9 +27,6 @@ public enum MessageType {
     @JsonProperty("location")
     LOCATION,
 
-    @JsonProperty("rich_media")
-    RICH_MEDIA,
-
-    @JsonProperty("keyboard")
-    KEYBOARD;
+    @JsonProperty("carousel content")
+    CAROUSEL_CONTENT;
 }

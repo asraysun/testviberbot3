@@ -28,7 +28,4 @@ public class ConversationStartedCallback {
 
     @JsonProperty("subscribed")
     private Boolean subscribed;
-
-    @JsonProperty("chat_hostname")
-    private String chatHostname;
 }
