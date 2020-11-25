@@ -18,4 +18,7 @@ public class UnsubscribedCallback {
 
     @JsonProperty("message_token")
     private Long messageToken;
+
+    @JsonProperty("chat_hostname")
+    private String chatHostname;
 }

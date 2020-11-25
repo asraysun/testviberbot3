@@ -21,4 +21,7 @@ public class FailedCallback {
 
     @JsonProperty("desc")
     private String description;
+
+    @JsonProperty("chat_hostname")
+    private String chatHostname;
 }

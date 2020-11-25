@@ -18,4 +18,7 @@ public class SeenCallback {
 
     @JsonProperty("user_id")
     private String userId;
+
+    @JsonProperty("chat_hostname")
+    private String chatHostname;
 }

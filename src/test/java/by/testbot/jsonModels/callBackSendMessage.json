@@ -1,0 +1,14 @@
+{
+  "receiver":"01234567890A=",
+  "min_api_version":1,
+  "sender":{
+    "name":"John McClane",
+    "avatar":"http://avatar.example.com"
+  },
+  "tracking_data":"tracking data",
+  "type":"video",
+  "media":"http://www.images.com/video.mp4",
+  "thumbnail":"http://www.images.com/thumb.jpg",
+  "size":10000,
+  "duration":10
+}
