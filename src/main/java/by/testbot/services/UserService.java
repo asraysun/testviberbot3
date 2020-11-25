@@ -37,11 +37,13 @@ public class UserService {
 
     @Transactional
     public User getById(Long id) {
-        return userRepository.findAll().stream().filter(u -> u.getId() == id).findAny().orElse(null);
+        return userRepository.findUserById(id);
+//        return userRepository.findAll().stream().filter(u -> u.getId() == id).findAny().orElse(null);
     }
 
     @Transactional
     public User getByViberId(String viberId) {
-        return userRepository.findAll().stream().filter(u -> u.getViberId().equals(viberId)).findAny().orElse(null);
+        return userRepository.findUserByViberId(viberId);
+//        return userRepository.findAll().stream().filter(u -> u.getViberId().equals(viberId)).findAny().orElse(null);
     }
 }

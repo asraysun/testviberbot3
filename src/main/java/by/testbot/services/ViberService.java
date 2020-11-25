@@ -36,7 +36,7 @@ public class ViberService {
     @Value("${testbot.webhookUrl}")
     private String webhookUrl;
 
-    public void setWeebhook() {
+    public void setWebhook() {
         if (authenticationToken == null || authenticationToken.isEmpty() || authenticationToken.isBlank()) {
             logger.error("Authentication token has invalid type.");
             return;
@@ -285,6 +285,21 @@ public class ViberService {
         else if (viberUpdate.hasMessageCallback()) {
             logger.info("Received MessageCallback from user: " + viberUpdate.getMessageCallback().getSender().getId() + ", message type: " + viberUpdate.getMessageCallback().getMessage().getMessageType());
             // handle callback
+            if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Список менеджеров")) {
+                keyboardService.sendListOfManagersMenuKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            } else if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Подтвердите отправку отложенного сообщения")) {
+                keyboardService.sendConfirmPostponeMessageKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            } else if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Список клиентов")) {
+                keyboardService.sendListOfClientsMenuKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            } else if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Отчет")) {
+                keyboardService.sendReportMenuKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            } else if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Настройки")) {
+                keyboardService.sendSettingsMenuKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            } else if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Настройка периода временного использования бота")) {
+                keyboardService.sendBotUsagePeriodMenuKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            } else if (viberUpdate.getMessageCallback().getMessage().getText().startsWith("Интеграции")) {
+                keyboardService.sendIntegrationsMenuKeyboard(viberUpdate.getMessageCallback().getSender().getId());
+            }
         }
     }
 
